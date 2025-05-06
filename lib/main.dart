@@ -1,293 +1,326 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'vista/vista_login.dart';
 
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: LoginPage(),
-  ));
+  runApp(const MyApp());
 }
 
-class LoginPage extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF4E3D0),
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: Container(
-          width: 200, // Ajusta este ancho, no lo pongas en 500
-          color: Colors.black,
-          child: Row(
-            children: [
-              Center(
-                child: IconButton(
-                  icon: const Icon(Icons.menu, color: Colors.white),
-                  onPressed: () {},
-                ),
-              ),
-              Center(
-                child: Expanded(
-                child: Text(
-                  'Texto',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-              ),
-            ],
-          ),
-        ),
-
-        title: Center(
-          child: SizedBox(
-            width: 250,
-            child: TextField(
-              textAlign: TextAlign.center,
-              decoration: InputDecoration(
-                fillColor: Colors.white,
-                filled: true,
-                hintText: "Buscar...",
-                prefixIcon: Icon(Icons.search),
-                suffixIcon: Padding(
-                  padding:
-                      const EdgeInsets.only(right: 0), // Espaciado opcional
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.orange, // ← color de fondo del botón
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: IconButton(
-                      icon: Icon(Icons.search,
-                          color:
-                              Colors.white), // ícono blanco sobre fondo naranja
-                      onPressed: () {
-                        print("Botón  de búsqueda presionado");
-                      },
-                    ),
-                  ),
-                ),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                contentPadding: EdgeInsets.symmetric(vertical: 0),
-                isDense: true,
-              ),
-            ),
-          ),
-        ),
-        centerTitle: true,
-        actions: [SizedBox(width: 48)], // Espacio equivalente al leading
-      ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: Center(
-                child: FractionallySizedBox(
-                  widthFactor: 0.4,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 20),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          margin: const EdgeInsets.all(10),
-                          padding: const EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Row(
-                                children: [
-                                  IconButton(
-                                    icon: const Icon(Icons.arrow_back),
-                                    onPressed: () {},
-                                  ),
-                                ],
-                              ),
-                              Row(children: [
-                                Expanded(
-                                  child: Center(
-                                    child: const Text(
-                                      "Inicia Sesión",
-                                      style: TextStyle(
-                                        fontSize: 24,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ]),
-                              const SizedBox(height: 50),
-                              SizedBox(
-                                width: 350,
-                                child: TextField(
-                                  obscureText: true,
-                                  decoration: InputDecoration(
-                                    labelText: 'Correo',
-                                    isDense: true,
-                                    contentPadding: EdgeInsets.symmetric(
-                                        vertical: 10, horizontal: 10),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(height: 20), // Espaciado
-                              SizedBox(
-                                width: 350,
-                                child: TextField(
-                                  obscureText: true,
-                                  decoration: InputDecoration(
-                                    labelText: 'Contraseña',
-                                    isDense: true,
-                                    contentPadding: EdgeInsets.symmetric(
-                                        vertical: 10, horizontal: 10),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              SizedBox(
-                                width: 350,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
-                                  children: [
-                                    TextButton(
-                                      onPressed: () {},
-                                      child: const Text(
-                                        'Restablecer contraseña',
-                                        style: TextStyle(color: Colors.green),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              SizedBox(
-                                width: 250,
-                                child: ElevatedButton.icon(
-                                  onPressed: () {},
-                                  icon: const Icon(Icons.login),
-                                  label: const Text("Iniciar Sesión"),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Color(0xFFEC7521),
-                                    foregroundColor: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(100),
-                                    ),
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 14),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Text("¿No tienes cuenta? "),
-                                  TextButton(
-                                    onPressed: () {},
-                                    child: const Text(
-                                      'Regístrate aquí',
-                                      style: TextStyle(color: Colors.green),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const Divider(height: 30),
-                              const Text("O inicia con:"),
-                              const SizedBox(height: 10),
-                              OutlinedButton.icon(
-                                onPressed: () {},
-                                icon: Icon(FontAwesomeIcons.google, size: 18),
-                                label: const Text("Iniciar con Google"),
-                                style: OutlinedButton.styleFrom(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 24, vertical: 12),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            const AppFooter(),
-          ],
-        ),
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomePage(),
     );
   }
 }
 
-class AppFooter extends StatelessWidget {
-  const AppFooter({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  void _openCartDrawer(BuildContext context) {
+    Scaffold.of(context).openEndDrawer();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black87,
-      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          // Texto + Iconos en una misma fila
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                "DISFRUTA AL MÁXIMO",
-                style: TextStyle(
-                  color: Colors.orangeAccent,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF003366),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.menu, color: Colors.white),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              padding: EdgeInsets.zero,
+              iconSize: 24,
+            );
+          },
+        ),
+        title: Row(
+          children: [
+            Image.asset(
+              'assets/logo.png',
+              height: 35,
+              fit: BoxFit.contain,
+            ),
+            Expanded(
+              child: Center(
+                child: Container(
+                  height: 35,
+                  width: 1000,
+                  margin: const EdgeInsets.symmetric(horizontal: 8),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Busca aquí',
+                      border: InputBorder.none,
+                      contentPadding:
+                          EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                      suffixIcon: Icon(Icons.search, size: 20),
+                    ),
+                  ),
                 ),
               ),
-              SizedBox(width: 20),
-              Icon(FontAwesomeIcons.facebook, color: Colors.orange, size: 20),
-              SizedBox(width: 10),
-              Icon(FontAwesomeIcons.instagram, color: Colors.orange, size: 20),
-            ],
+            ),
+          ],
+        ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite, size: 22, color: Colors.white),
+            onPressed: () {},
           ),
-          const SizedBox(height: 10),
-          // Textos en una sola línea
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: const [
-                Text(
-                  "2008 - 2025 ©. Carpintería Chavarría S.A. De C.V    ",
-                  style: TextStyle(color: Colors.white70, fontSize: 12),
-                ),
-                Text(
-                  "Ruta Militar, Col. San Francisco, San Miguel    ",
-                  style: TextStyle(color: Colors.white70, fontSize: 12),
-                ),
-                Text(
-                  "carpinteriachavarria@gmail.com | 503 2230-4976",
-                  style: TextStyle(color: Colors.white70, fontSize: 12),
-                ),
-              ],
+          Builder(
+            builder: (context) => IconButton(
+              icon: const Icon(Icons.shopping_cart,
+                  size: 22, color: Colors.white),
+              onPressed: () {
+                _openCartDrawer(context);
+              },
             ),
           ),
+          IconButton(
+            icon: const Icon(Icons.person, size: 22, color: Colors.white),
+            onPressed: () {},
+          ),
         ],
+        toolbarHeight: 60,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: const Text('Carpintería Chavarría',
+                  style: TextStyle(color: Colors.white)),
+              accountEmail: const Text('contacto@chavarria.com',
+                  style: TextStyle(color: Colors.white)),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.business,
+                  color: Colors.blue,
+                  size: 50,
+                ),
+              ),
+              decoration: BoxDecoration(
+                color: const Color(0xFF003366),
+              ),
+            ),
+            ListTile(
+              title:
+                  const Text('Inicio', style: TextStyle(color: Colors.black)),
+              leading: const Icon(Icons.home, color: Colors.black),
+              onTap: () {},
+            ),
+            ListTile(
+              title: const Text('Productos',
+                  style: TextStyle(color: Colors.black)),
+              leading: const Icon(Icons.view_list, color: Colors.black),
+              onTap: () {},
+            ),
+            ListTile(
+              title:
+                  const Text('Ofertas', style: TextStyle(color: Colors.black)),
+              leading: const Icon(Icons.local_offer, color: Colors.black),
+              onTap: () {},
+            ),
+            ListTile(
+              title: const Text('Cerrar sesión',
+                  style: TextStyle(color: Colors.black)),
+              leading: const Icon(Icons.exit_to_app, color: Colors.black),
+              onTap: () {
+                // Cierra sesión y redirige a LoginPage quitando todo lo anterior en el historial
+                Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                  (Route<dynamic> route) => false,
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      endDrawer: Drawer(
+        // Drawer del carrito
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: const Text('Tu Carrito',
+                  style: TextStyle(color: Colors.white)),
+              accountEmail: const Text('Carrito de compras',
+                  style: TextStyle(color: Colors.white)),
+              currentAccountPicture: CircleAvatar(
+                backgroundColor: Colors.white,
+                child: Icon(
+                  Icons.shopping_cart,
+                  color: Colors.blue,
+                  size: 50,
+                ),
+              ),
+              decoration: BoxDecoration(
+                color: const Color(0xFF003366),
+              ),
+            ),
+            const Divider(),
+            ListTile(
+              title: const Text('Ir a comprar',
+                  style: TextStyle(color: Colors.black)),
+              leading: const Icon(Icons.payment, color: Colors.black),
+              onTap: () {
+                print("Ir a comprar");
+              },
+            ),
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              height: 350,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/fondo.png'),
+                  fit: BoxFit.cover,
+                ),
+                gradient: LinearGradient(
+                  colors: [
+                    Colors.black.withOpacity(0.6),
+                    Colors.transparent,
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                ),
+              ),
+              child: Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Text(
+                      'Carpintería Chavarria',
+                      style: TextStyle(
+                        fontSize: 28,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    const Text(
+                      'Haz clic para ver productos',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
+                    const SizedBox(height: 16),
+                    ElevatedButton(
+                      onPressed: null,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orange,
+                      ),
+                      child: const Text('Ver Productos'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(
+                'Ofertas',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+              ),
+              itemCount: 6,
+              itemBuilder: (context, index) {
+                return Container(
+                  color: Colors.grey[300],
+                  height: 200,
+                  child: const Center(
+                    child: Text('Imagen Producto'),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 16),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Text(
+                'Más Vendidos',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(height: 8),
+            GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+              ),
+              itemCount: 6,
+              itemBuilder: (context, index) {
+                return Container(
+                  color: Colors.grey[300],
+                  height: 200,
+                  child: const Center(
+                    child: Text('Imagen Producto Más Vendido'),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.all(16.0),
+              color: const Color(0xFFF1F1F1),
+              child: Column(
+                children: [
+                  const Text(
+                    'Síguenos en redes sociales',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(FontAwesomeIcons.facebook, color: Colors.black),
+                      SizedBox(width: 16),
+                      Icon(FontAwesomeIcons.instagram, color: Colors.black),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
